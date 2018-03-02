@@ -1,0 +1,33 @@
+body {
+  margin: 100px auto;
+  /*max-width: 960px;*/
+  text-align: center;
+  color: #888;
+}
+
+#statusIndicator {
+  display: block;
+  font-size: 15px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 1em;
+}
+
+.main {
+  font-size: 2em;
+}
+
+.big {
+  font-size: 3em;
+}
+
+.highlight {
+  color: black;
+  padding: 2em 0;
+}
+
+input {
+  display: inline;
+  text-align: center;
+}
