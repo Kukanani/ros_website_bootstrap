@@ -37,26 +37,26 @@ ros.connect('ws://localhost:9090');
 var response_topic = new ROSLIB.Topic({
   ros : ros,
   name : '/user_response',
-  messageType : 'std_msgs/String'
+  messageType : 'std_msgs/Bool'
 });
 
 function pub_response(response) {
-  var response_message = new ROSLIB.Message({data: response});
-  response_topic.publish(response_message);
+  var resp = new ROSLIB.Message({
+    data: response
+  });
+
+  // And finally, publish.
+  response_topic.publish(resp);
 }
 
-// $( document ).ready(function() {
-$('#response').bind("enterKey",function(e){
-  console.log("enter pressed " + $(this).val());
-  pub_response($(this).val());
+$('#yes').click(function(e){
+  pub_response(true)
 });
-$('#response').keyup(function(e){
-if(e.keyCode == 13)
-{
-  $(this).trigger("enterKey");
-}
+$('#no').click(function(e){
+  pub_response(false)
 });
-// });
+
+// pub_response("hi");
 
 // // Then we create the payload to be published. The object we pass in to ros.Message matches the
 // // fields defined in the geometry_msgs/Twist.msg definition.
